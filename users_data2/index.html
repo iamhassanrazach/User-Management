@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <style>
+        .card {
+            width: clamp(25%, 280px, 100%);
+            max-width: 650px;
+            border: 1px solid #373535;
+            padding-bottom: 1em;
+        }
+
+        .card:hover {
+            background-color: #601ef90f;
+            -webkit-box-shadow: 0 2px 2px 0 rgb(222 222 222 / 14%),
+                0 3px 1px -2px rgb(228 228 228 / 12%),
+                0 1px 12px 1px rgb(255 255 255 / 20%);
+            box-shadow: 0 2px 2px 0 rgb(222 222 222 / 14%),
+                0 3px 1px -2px rgb(228 228 228 / 12%),
+                S 0 1px 12px 1px rgb(255 255 255 / 20%);
+        }
+
+        .card .card-title {
+            color: white;
+            position: absolute;
+            bottom: 125px;
+            left: 50%;
+            text-transform: uppercase;
+            max-width: 100%;
+            padding: 24px;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: all 210ms ease-in-out;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover .card-title {
+            bottom: 201px;
+            text-shadow: 1px 1px 2px #000000eb;
+        }
+
+        #users-container {
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <!-- Add navbar with reset button HERE -->
+
+        <nav class="navbar navbar-light bg-light mb-3">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">User Management</span>
+                <div>
+                    <button id="undoBtn" class="btn btn-info btn-sm" disabled>Undo (0)</button>
+                    <button id="resetBtn" class="btn btn-warning btn-sm ms-2">Reset All</button>
+                    <button id="hardResetBtn" class="btn btn-danger btn-sm ms-2">Clear All Data</button>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <!-- Loading spinner -->
+        <div id="spinner" class="text-center d-none">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Alert for errors -->
+        <div id="alert" class="alert d-none" role="alert"></div>
+
+        <div class="row row-cols-1 row-cols-md-3 justify-content-center" id="users-container">
+            <!-- User cards will be inserted here -->
+        </div>
+
+        <!-- Remove the demo modal trigger button -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit User</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Dynamic content here -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary submit-btn">Save changes</button>
+                        <!-- ❌ REMOVE RESET BUTTON FROM HERE -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="script2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
